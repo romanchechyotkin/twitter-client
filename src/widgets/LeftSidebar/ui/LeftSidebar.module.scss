@@ -1,0 +1,30 @@
+.sidebar {
+  width: 275px;
+  height: 100vh;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.icon {
+  font-size: 29px;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 24px;
+}
+
+.tweetBtn {
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.profile {
+  margin-top: auto;
+}
+

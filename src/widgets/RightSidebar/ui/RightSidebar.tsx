@@ -1,0 +1,10 @@
+import React from 'react';
+import cls from './RightSidebar.module.scss'
+
+export const RightSidebar = () => {
+    return (
+        <div className={cls.sidebar}>
+            right sidebar
+        </div>
+    );
+};

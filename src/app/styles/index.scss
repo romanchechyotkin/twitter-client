@@ -1,0 +1,25 @@
+@import "reset";
+@import "./themes/default";
+@import "./themes/dim";
+@import "./themes/lightsOut";
+
+body {
+  font-size: 15px;
+  color: white;
+  background-color: black;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+  display: flex;
+
+  div.timeline {
+    border-left: 1px grey solid;
+    border-right: 1px grey solid;
+    height: 100vh;
+  }
+
+}
