@@ -10,13 +10,16 @@ import {ProfileIcon} from 'shared/assets/icons/ProfileIcon';
 import {MailOutlined, TwitterOutlined} from "@ant-design/icons";
 import {AppLink} from "shared/ui/AppLink";
 import {AppRoutes} from "shared/config/routeConfig/routeConfig";
+import {classNames} from "shared/lib/classNames/classNames";
 import {Button} from "antd";
+import {ProfileWindow} from "../../ProfileWindow";
 
 export const LeftSidebar = () => {
     return (
         <div className={cls.sidebar}>
             <AppLink
                 to={AppRoutes.HOME}
+                className={cls.sidebarItem}
             >
                 <TwitterOutlined className={cls.icon} />
             </AppLink>
@@ -80,9 +83,7 @@ export const LeftSidebar = () => {
             >
                 Tweet
             </Button>
-            <div className={cls.profile}>
-                profile
-            </div>
+            <ProfileWindow />
         </div>
     );
 };

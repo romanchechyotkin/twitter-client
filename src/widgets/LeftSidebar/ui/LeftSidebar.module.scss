@@ -1,10 +1,9 @@
 .sidebar {
   width: 275px;
   height: 100vh;
-  padding-top: 10px;
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
-  gap: 25px;
 }
 
 .icon {
@@ -12,19 +11,23 @@
 }
 
 .sidebarItem {
+  width: fit-content;
+  cursor: pointer;
+  padding: 15px 15px 15px 15px;
+  border-radius: 35px;
   display: flex;
   align-items: center;
   gap: 15px;
   font-size: 24px;
+
+  &:hover {
+    background-color: rgba(86, 87, 96, 0.26);
+    transition: all 0.3s;
+  }
 }
 
 .tweetBtn {
-  width: 200px;
+  width: 225px;
   height: 50px;
-  border-radius: 25px;
+  margin-top: 10px;
 }
-
-.profile {
-  margin-top: auto;
-}
-

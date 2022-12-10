@@ -1,0 +1,37 @@
+.profileWindow {
+  height: 64px;
+  width: 251px;
+  padding: 5px;
+  border-radius: 25px;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  &:hover {
+    background-color: rgba(86, 87, 96, 0.26);
+    transition: all 0.3s;
+  }
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.fullName {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.userName {
+  font-weight: 400;
+  font-size: 17px;
+  color: #6e767d;
+}
+
+.points {
+  rotate: 90deg;
+  font-size: 22px;
+}
