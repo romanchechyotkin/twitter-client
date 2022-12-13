@@ -1,4 +1,11 @@
 import {Navigate, RouteProps} from "react-router-dom";
+import {ProfilePage} from "pages/ProfilePage";
+import {HomePage} from "pages/HomePage";
+import {ExplorePage} from "pages/ExplorePage";
+import {NotificationsPage} from "pages/NotificationsPage";
+import {MessagesPage} from "pages/MessagesPage";
+import {BookmarksPage} from "pages/BookmarksPage";
+import {ListsPage} from "pages/ListsPage";
 
 export enum AppRoutes {
     MAIN="main",
@@ -31,31 +38,31 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     },
     [AppRoutes.HOME]: {
         path: RoutePath.home,
-        element: <h1>home</h1>,
+        element: <HomePage />,
     },
     [AppRoutes.EXPLORE]: {
         path: RoutePath.explore,
-        element: <h1>explore</h1>,
+        element: <ExplorePage />,
     },
     [AppRoutes.NOTIFICATIONS]: {
         path: RoutePath.notifications,
-        element: <h1>notifications</h1>,
+        element: <NotificationsPage />,
     },
     [AppRoutes.MESSAGES]: {
         path: RoutePath.messages,
-        element: <h1>messages</h1>,
+        element: <MessagesPage />,
     },
     [AppRoutes.BOOKMARKS]: {
         path: RoutePath.bookmarks,
-        element: <h1>bookmarks</h1>,
+        element: <BookmarksPage />,
     },
     [AppRoutes.LISTS]: {
         path: RoutePath.lists,
-        element: <h1>lists</h1>,
+        element: <ListsPage />,
     },
     [AppRoutes.PROFILE]: {
         path: RoutePath.profile,
-        element: <h1>profile</h1>,
+        element: <ProfilePage />,
     },
     [AppRoutes.ERROR]: {
         path: RoutePath.error,
