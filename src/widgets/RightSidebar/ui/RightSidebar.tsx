@@ -4,7 +4,7 @@ import cls from './RightSidebar.module.scss'
 export const RightSidebar = () => {
     return (
         <div className={cls.sidebar}>
-            right sidebar
+            <div className={cls.search}>sesasadasdadawdwarch</div>
         </div>
     );
 };

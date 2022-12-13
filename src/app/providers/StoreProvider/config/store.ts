@@ -1,0 +1,16 @@
+import {StateSchema} from "./StateSchema";
+import {configureStore, ReducersMapObject} from "@reduxjs/toolkit";
+import {createTweetReducer} from "features/CreateTweet";
+
+export function createReduxStore(initialState?: StateSchema) {
+    const rootReducer: ReducersMapObject<StateSchema> = {
+        tweetForm: createTweetReducer
+    }
+
+    return configureStore<StateSchema>({
+        reducer: rootReducer,
+        devTools: true,
+        preloadedState: initialState
+    })
+    
+}

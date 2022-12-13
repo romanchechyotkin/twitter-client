@@ -8,9 +8,8 @@ import {ListsIcon} from 'shared/assets/icons/ListsIcon';
 import {MoreIcon} from 'shared/assets/icons/MoreIcon';
 import {ProfileIcon} from 'shared/assets/icons/ProfileIcon';
 import {MailOutlined, TwitterOutlined} from "@ant-design/icons";
-import {AppLink} from "shared/ui/AppLink";
+import {AppLink} from "shared/ui/AppLink/AppLink";
 import {AppRoutes} from "shared/config/routeConfig/routeConfig";
-import {classNames} from "shared/lib/classNames/classNames";
 import {Button} from "antd";
 import {ProfileWindow} from "../../ProfileWindow";
 

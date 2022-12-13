@@ -1,0 +1,63 @@
+.tweetForm {
+  height: 127px;
+  border-bottom: 2px solid rgba(86, 87, 96, 0.26);
+  padding: 0 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.media {
+  display: flex;
+  justify-content: space-between;
+}
+
+.emojis {
+  display: flex;
+  gap: 15px;
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    border-radius: 15px;
+
+    &:hover {
+      transition: 0.3s all;
+      background-color: rgba(8, 43, 66, 0.34);
+    }
+  }
+
+}
+
+.avatarLink {
+  height: 60px;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.textarea {
+  padding-top: 15px;
+  width: 450px;
+  height: auto;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 24px;
+
+  &:focus {
+    outline: none;
+  }
+}
+

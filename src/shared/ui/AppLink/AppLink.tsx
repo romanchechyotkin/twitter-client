@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, LinkProps} from "react-router-dom";
 import cls from './AppLink.module.scss'
-import {classNames} from "../lib/classNames/classNames";
+import {classNames} from "../../lib/classNames/classNames";
 
 export interface AppLinkProps extends LinkProps {
     className?: string;
