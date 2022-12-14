@@ -25,7 +25,6 @@ export const CreateTweetForm = () => {
         if (!tweetText) {
             return;
         }
-        console.log(tweetText)
         // @ts-ignore
         dispatch(createTweet(tweetText))
     }

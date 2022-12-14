@@ -1,0 +1,99 @@
+.tweetCard {
+  padding: 15px;
+  border-bottom: 2px rgba(86, 87, 96, 0.26) solid;
+  display: flex;
+  gap: 10px;
+  justify-content: normal;
+  align-items: center;
+}
+
+.avatarLink {
+  height: 60px;
+  margin-bottom: auto;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.mediaContent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweetSubs {
+  display: flex;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tweetText {
+  font-size: 16px;
+  width: fit-content;
+}
+
+.icons {
+  display: flex;
+  width: 350px;
+  justify-content: space-between;
+
+  li {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #6e767d;
+    cursor: pointer;
+
+
+    &.reply:hover {
+      color: #1da1f2;
+      fill: #1da1f2;
+    }
+
+    &.reply:hover svg,
+    &.reply:hover path {
+      color: #1da1f2;
+      fill: #1da1f2;
+    }
+
+
+    &.retweet:hover {
+      color: forestgreen;
+      fill: forestgreen;
+    }
+
+    &.retweet:hover svg,
+    &.retweet:hover path {
+      color: forestgreen;
+      fill: forestgreen;
+    }
+
+
+    &.like:hover {
+      color: #fc143c;
+      fill: #fc143c;
+    }
+
+    &.like:hover svg,
+    &.like:hover path{
+      color: #fc143c;
+      fill: #fc143c;
+    }
+  }
+
+}
+
+
+
+
+
