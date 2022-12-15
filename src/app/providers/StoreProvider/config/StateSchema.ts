@@ -1,5 +1,7 @@
 import {CreateTweetSchema} from "features/CreateTweet";
+import {TweetSchema} from "entities/Tweet";
 
 export interface StateSchema {
-    tweetForm: CreateTweetSchema
+    tweetForm: CreateTweetSchema,
+    tweet: TweetSchema
 }

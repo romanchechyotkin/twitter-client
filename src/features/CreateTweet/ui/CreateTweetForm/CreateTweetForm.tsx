@@ -1,6 +1,5 @@
 import React from 'react';
 import cls from './CreateTweetForm.module.scss'
-import Avatar from 'shared/assets/avatar.jpg'
 import {GifOutlined, PictureOutlined} from "@ant-design/icons";
 import {PlanIcon} from 'shared/assets/icons/PlanIcon'
 import {EmojiIcon} from 'shared/assets/icons/EmojiIcon'
@@ -11,7 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {createTweetActions} from "../../model/slice/createTweetSlice";
 import {getTweetText} from "../../model/selectors/getTweetText/getTweetText";
 import {createTweet} from "../../model/services/createTweet/createTweet";
-
+import defaultAvatar from 'shared/assets/defaultAvatar.png'
 
 export const CreateTweetForm = () => {
     const tweetText = useSelector(getTweetText)
@@ -36,7 +35,7 @@ export const CreateTweetForm = () => {
                 to={'/profile'}
                 // to={AppRoutes.PROFILE}
             >
-                <img className={cls.avatar} src={Avatar} alt="avatar"/>
+                <img className={cls.avatar} src={defaultAvatar} alt="avatar"/>
             </AppLink>
             <div className={cls.form}>
                 <input

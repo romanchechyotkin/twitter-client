@@ -1,10 +1,12 @@
 import {StateSchema} from "./StateSchema";
 import {configureStore, ReducersMapObject} from "@reduxjs/toolkit";
 import {createTweetReducer} from "features/CreateTweet";
+import {tweetReducer} from "entities/Tweet";
 
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducer: ReducersMapObject<StateSchema> = {
-        tweetForm: createTweetReducer
+        tweetForm: createTweetReducer,
+        tweet: tweetReducer
     }
 
     return configureStore<StateSchema>({
@@ -12,5 +14,5 @@ export function createReduxStore(initialState?: StateSchema) {
         devTools: true,
         preloadedState: initialState
     })
-    
+
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import cls from './ProfileWindow.module.scss'
-import Avatar from 'shared/assets/avatar.jpg'
 import {MoreOutlined} from "@ant-design/icons";
+import defaultAvatar from 'shared/assets/defaultAvatar.png'
+
 
 export const ProfileWindow = () => {
 
@@ -12,7 +13,7 @@ export const ProfileWindow = () => {
 
     return (
         <div className={cls.profileWindow}>
-            <img src={Avatar} alt="icon" className={cls.avatar}/>
+            <img src={defaultAvatar} alt="icon" className={cls.avatar}/>
             <div>
                 <p className={cls.fullName}>{user.fullName}</p>
                 <p className={cls.userName}>@{user.userName}</p>
