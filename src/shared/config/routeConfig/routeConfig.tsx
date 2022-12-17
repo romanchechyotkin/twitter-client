@@ -7,7 +7,7 @@ import {MessagesPage} from "pages/MessagesPage";
 import {BookmarksPage} from "pages/BookmarksPage";
 import {ListsPage} from "pages/ListsPage";
 
-export enum AppRoutes {
+export enum AuthAppRoutes {
     MAIN="main",
     HOME='home',
     EXPLORE='explore',
@@ -19,53 +19,93 @@ export enum AppRoutes {
     ERROR='error'
 }
 
-export const RoutePath: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: "/",
-    [AppRoutes.HOME]: "/home",
-    [AppRoutes.EXPLORE]: "/explore",
-    [AppRoutes.NOTIFICATIONS]: "/notifications",
-    [AppRoutes.MESSAGES]: "/messages",
-    [AppRoutes.BOOKMARKS]: "/bookmarks",
-    [AppRoutes.LISTS]: "/lists",
-    [AppRoutes.PROFILE]: "/profile",
-    [AppRoutes.ERROR]: "*"
+export const AuthRoutePath: Record<AuthAppRoutes, string> = {
+    [AuthAppRoutes.MAIN]: "/",
+    [AuthAppRoutes.HOME]: "/home",
+    [AuthAppRoutes.EXPLORE]: "/explore",
+    [AuthAppRoutes.NOTIFICATIONS]: "/notifications",
+    [AuthAppRoutes.MESSAGES]: "/messages",
+    [AuthAppRoutes.BOOKMARKS]: "/bookmarks",
+    [AuthAppRoutes.LISTS]: "/lists",
+    [AuthAppRoutes.PROFILE]: "/profile",
+    [AuthAppRoutes.ERROR]: "*"
 };
 
-export const routeConfig: Record<AppRoutes, RouteProps> = {
-    [AppRoutes.MAIN]: {
-        path: RoutePath.main,
+export enum NotAuthAppRoutes {
+    MAIN="main",
+    EXPLORE='explore',
+    ERROR='error',
+    // NOTIFICATIONS='notifications',
+    // MESSAGES='messages',
+    // BOOKMARKS='bookmarks',
+    // LISTS='lists',
+    // PROFILE='profile',
+}
+
+export const NotAuthRoutePath: Record<NotAuthAppRoutes, string> = {
+    [AuthAppRoutes.MAIN]: "/",
+    [AuthAppRoutes.EXPLORE]: "/explore",
+    [AuthAppRoutes.ERROR]: "*",
+    // [AuthAppRoutes.NOTIFICATIONS]: "/notifications",
+    // [AuthAppRoutes.MESSAGES]: "/messages",
+    // [AuthAppRoutes.BOOKMARKS]: "/bookmarks",
+    // [AuthAppRoutes.LISTS]: "/lists",
+    // [AuthAppRoutes.PROFILE]: "/profile",
+};
+
+
+
+export const routeAuthConfig: Record<AuthAppRoutes, RouteProps> = {
+    [AuthAppRoutes.MAIN]: {
+        path: AuthRoutePath.main,
         element: <Navigate to={'/home'} />,
     },
-    [AppRoutes.HOME]: {
-        path: RoutePath.home,
+    [AuthAppRoutes.HOME]: {
+        path: AuthRoutePath.home,
         element: <HomePage />,
     },
-    [AppRoutes.EXPLORE]: {
-        path: RoutePath.explore,
+    [AuthAppRoutes.EXPLORE]: {
+        path: AuthRoutePath.explore,
         element: <ExplorePage />,
     },
-    [AppRoutes.NOTIFICATIONS]: {
-        path: RoutePath.notifications,
+    [AuthAppRoutes.NOTIFICATIONS]: {
+        path: AuthRoutePath.notifications,
         element: <NotificationsPage />,
     },
-    [AppRoutes.MESSAGES]: {
-        path: RoutePath.messages,
+    [AuthAppRoutes.MESSAGES]: {
+        path: AuthRoutePath.messages,
         element: <MessagesPage />,
     },
-    [AppRoutes.BOOKMARKS]: {
-        path: RoutePath.bookmarks,
+    [AuthAppRoutes.BOOKMARKS]: {
+        path: AuthRoutePath.bookmarks,
         element: <BookmarksPage />,
     },
-    [AppRoutes.LISTS]: {
-        path: RoutePath.lists,
+    [AuthAppRoutes.LISTS]: {
+        path: AuthRoutePath.lists,
         element: <ListsPage />,
     },
-    [AppRoutes.PROFILE]: {
-        path: RoutePath.profile,
+    [AuthAppRoutes.PROFILE]: {
+        path: AuthRoutePath.profile,
         element: <ProfilePage />,
     },
-    [AppRoutes.ERROR]: {
-        path: RoutePath.error,
+    [AuthAppRoutes.ERROR]: {
+        path: AuthRoutePath.error,
         element: <h1>error</h1>,
     }
 };
+
+export const routeNotAuthConfig: Record<NotAuthAppRoutes, RouteProps> = {
+    [NotAuthAppRoutes.MAIN]: {
+        path: NotAuthRoutePath.main,
+        element: <Navigate to={'/explore'} />
+    },
+    [NotAuthAppRoutes.EXPLORE]: {
+        path: NotAuthRoutePath.explore,
+        element: <ExplorePage />
+    },
+    [NotAuthAppRoutes.ERROR]: {
+        path: NotAuthRoutePath.error,
+        element: <Navigate to={'/explore'} />
+    }
+};
+

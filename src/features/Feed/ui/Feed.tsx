@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
 import {TweetCard} from "widgets/TweetCard";
 import {useDispatch, useSelector} from "react-redux";
-import {getFeedTweets, getTweets} from "entities/Tweet";
+import {getFeedTweets} from "../model/services/getFeedTweets/getFeedTweets";
+import {getTweets} from "../model/selectors/getTweets/getTweets";
+import cls from './Feed.module.scss'
 
 export const Feed = () => {
     const tweets = useSelector(getTweets)
@@ -10,11 +12,10 @@ export const Feed = () => {
     useEffect(() => {
         // @ts-ignore
         dispatch(getFeedTweets())
-        console.log('loaded')
     }, [dispatch]);
 
     return (
-        <div>
+        <div className={cls.feed}>
             {tweets.map(tweet =>
                 <TweetCard tweet={tweet} key={tweet._id} />
             )}

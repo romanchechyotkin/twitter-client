@@ -28,7 +28,7 @@ export const TweetCard: React.FC<TweetCardProps> = (props) => {
                     <ul className={cls.tweetSubs}>
                         <li>{tweet.user.full_name}</li>
                         <li style={{color: "#6e767d"}}>@{tweet.user.user_name}</li>
-                        <li>{new Date(tweet.date).toISOString().slice(0, 10)}</li>
+                        <li>{tweet.date}</li>
                     </ul>
                     <div className={cls.tweetText}>
                         {tweet.text}

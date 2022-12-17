@@ -1,11 +1,15 @@
 import React, {Suspense} from "react";
 import {Route, Routes} from "react-router-dom";
-import {routeConfig} from "shared/config/routeConfig/routeConfig";
+import {routeAuthConfig, routeNotAuthConfig} from "shared/config/routeConfig/routeConfig";
+import {useSelector} from "react-redux";
+import {getUserIsAuth} from "entities/User";
 
 export const AppRoute = () => {
+    const isAuth = useSelector(getUserIsAuth)
+
     return (
         <Routes>
-            {Object.values(routeConfig).map(({element, path}) => (
+            {Object.values(isAuth ? routeAuthConfig : routeNotAuthConfig).map(({element, path}) => (
                 <Route
                     key={path}
                     path={path}

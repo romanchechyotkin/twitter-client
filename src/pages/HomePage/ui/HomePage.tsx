@@ -1,7 +1,7 @@
 import React from 'react';
 import {PageNavbar, PageNavbarIconEnum} from "shared/ui/PageNavbar/PageNavbar";
 import {CreateTweetForm} from "features/CreateTweet";
-import {Feed} from "widgets/Feed";
+import {Feed} from "features/Feed";
 import cls from './HomePage.module.scss'
 
 const HomePage = () => {

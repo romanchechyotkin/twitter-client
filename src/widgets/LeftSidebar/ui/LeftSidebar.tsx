@@ -9,63 +9,85 @@ import {MoreIcon} from 'shared/assets/icons/MoreIcon';
 import {ProfileIcon} from 'shared/assets/icons/ProfileIcon';
 import {MailOutlined, TwitterOutlined} from "@ant-design/icons";
 import {AppLink} from "shared/ui/AppLink/AppLink";
-import {AppRoutes} from "shared/config/routeConfig/routeConfig";
+import {AuthAppRoutes} from "shared/config/routeConfig/routeConfig";
 import {Button} from "antd";
 import {ProfileWindow} from "../../ProfileWindow";
+import {useSelector} from "react-redux";
+import {getUserIsAuth} from "entities/User";
 
 export const LeftSidebar = () => {
+    const isAuth = useSelector(getUserIsAuth)
+
     return (
+        !isAuth
+            ?
         <div className={cls.sidebar}>
             <AppLink
-                to={AppRoutes.HOME}
+                to={AuthAppRoutes.HOME}
                 className={cls.sidebarItem}
             >
                 <TwitterOutlined className={cls.icon} />
             </AppLink>
             <AppLink
-                to={AppRoutes.HOME}
+                to={'/explore'}
+                className={cls.sidebarItem}
+            >
+                <ExploreIcon />
+                explore
+            </AppLink>
+        </div>
+            :
+        <div className={cls.sidebar}>
+            <AppLink
+                to={AuthAppRoutes.HOME}
+                className={cls.sidebarItem}
+            >
+                <TwitterOutlined className={cls.icon} />
+            </AppLink>
+            <AppLink
+                to={AuthAppRoutes.HOME}
                 className={cls.sidebarItem}
             >
                 <HomeIcon className={cls.icon} />
                 home
             </AppLink>
             <AppLink
-                to={AppRoutes.EXPLORE}
+                to={AuthAppRoutes.EXPLORE}
                 className={cls.sidebarItem}
             >
                 <ExploreIcon />
                 explore
             </AppLink>
             <AppLink
-                to={AppRoutes.NOTIFICATIONS}
+                to={AuthAppRoutes.NOTIFICATIONS}
                 className={cls.sidebarItem}
             >
                 <NotificationIcon />
                 notifications
             </AppLink>
             <AppLink
-                to={AppRoutes.MESSAGES}
+                to={AuthAppRoutes.MESSAGES}
                 className={cls.sidebarItem}
             >
                 <MailOutlined className={cls.icon}/>
                 messages
             </AppLink>
             <AppLink
-                to={AppRoutes.BOOKMARKS}
+                to={AuthAppRoutes.BOOKMARKS}
                 className={cls.sidebarItem}
             >
                 <BookMarkIcon />
                 bookmarks
             </AppLink>
             <AppLink
-                to={AppRoutes.LISTS}
+                to={AuthAppRoutes.LISTS}
                 className={cls.sidebarItem}
             >
                 <ListsIcon />
                 lists
             </AppLink>
             <AppLink
-                to={AppRoutes.PROFILE}
+                to={AuthAppRoutes.PROFILE}
                 className={cls.sidebarItem}
             >
                 <ProfileIcon />
@@ -82,7 +104,7 @@ export const LeftSidebar = () => {
             >
                 Tweet
             </Button>
-            <ProfileWindow />
+            {isAuth && <ProfileWindow/>}
         </div>
     );
 };

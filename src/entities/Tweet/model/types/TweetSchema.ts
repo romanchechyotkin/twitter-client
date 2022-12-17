@@ -1,5 +1,5 @@
 export interface TweetSchema {
-    tweets: Tweet[]
+    tweet?: Tweet;
 }
 
 export interface Tweet {

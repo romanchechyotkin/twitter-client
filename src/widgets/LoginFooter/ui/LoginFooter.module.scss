@@ -1,0 +1,27 @@
+.footer {
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  height: 75px;
+  width: 100%;
+  background-color: #1da1f2;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
