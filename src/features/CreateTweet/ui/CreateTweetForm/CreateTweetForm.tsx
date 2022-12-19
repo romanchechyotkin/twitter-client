@@ -11,12 +11,15 @@ import {createTweetActions} from "../../model/slice/createTweetSlice";
 import {getTweetText} from "../../model/selectors/getTweetText/getTweetText";
 import {createTweet} from "../../model/services/createTweet/createTweet";
 import defaultAvatar from 'shared/assets/defaultAvatar.png'
+import {Input} from "antd";
+
+const {TextArea} = Input
 
 export const CreateTweetForm = () => {
     const tweetText = useSelector(getTweetText)
     const dispatch = useDispatch()
 
-    const onChangeTweetText = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeTweetText = (e: { target: { value: any; }; }) => {
         dispatch(createTweetActions.setText(e.target.value))
     }
 
@@ -38,12 +41,13 @@ export const CreateTweetForm = () => {
                 <img className={cls.avatar} src={defaultAvatar} alt="avatar"/>
             </AppLink>
             <div className={cls.form}>
-                <input
+                <TextArea
                     className={cls.textarea}
-                    type={'text'}
-                    placeholder={"What's happening?"}
+                    placeholder="What's happening?"
+                    bordered={false}
                     value={tweetText}
                     onChange={onChangeTweetText}
+                    autoSize
                 />
                 <div className={cls.media}>
                     <ul className={cls.emojis}>

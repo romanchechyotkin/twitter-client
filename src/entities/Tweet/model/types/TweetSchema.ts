@@ -1,3 +1,5 @@
+import {User} from "entities/User";
+
 export interface TweetSchema {
     tweet?: Tweet;
 }
@@ -5,11 +7,7 @@ export interface TweetSchema {
 export interface Tweet {
     _id: string;
     text: string;
-    user: {
-        avatar: string,
-        full_name: string,
-        user_name: string,
-    }
+    user: User
     date: string;
     replies: any[],
     retweets: any[],
