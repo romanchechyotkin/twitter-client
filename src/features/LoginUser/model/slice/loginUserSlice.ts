@@ -49,6 +49,9 @@ export const loginUserSlice = createSlice({
             })
             .addCase(loginByEmail.fulfilled, (state) => {
                 state.isLoading = false;
+                state.password = '';
+                state.email = '';
+                state.currentStep = 0;
             })
             .addCase(loginByEmail.rejected, (state, action) => {
                 state.isLoading = false;

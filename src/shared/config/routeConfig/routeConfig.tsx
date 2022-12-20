@@ -33,7 +33,7 @@ export const AuthRoutePath: Record<AuthAppRoutes, string> = {
 
 export enum NotAuthAppRoutes {
     MAIN="main",
-    EXPLORE='explore',
+    Home='home',
     ERROR='error',
     // NOTIFICATIONS='notifications',
     // MESSAGES='messages',
@@ -44,7 +44,7 @@ export enum NotAuthAppRoutes {
 
 export const NotAuthRoutePath: Record<NotAuthAppRoutes, string> = {
     [AuthAppRoutes.MAIN]: "/",
-    [AuthAppRoutes.EXPLORE]: "/explore",
+    [AuthAppRoutes.HOME]: "/home",
     [AuthAppRoutes.ERROR]: "*",
     // [AuthAppRoutes.NOTIFICATIONS]: "/notifications",
     // [AuthAppRoutes.MESSAGES]: "/messages",
@@ -99,8 +99,8 @@ export const routeNotAuthConfig: Record<NotAuthAppRoutes, RouteProps> = {
         path: NotAuthRoutePath.main,
         element: <Navigate to={'/explore'} />
     },
-    [NotAuthAppRoutes.EXPLORE]: {
-        path: NotAuthRoutePath.explore,
+    [NotAuthAppRoutes.Home]: {
+        path: NotAuthRoutePath.home,
         element: <ExplorePage />
     },
     [NotAuthAppRoutes.ERROR]: {

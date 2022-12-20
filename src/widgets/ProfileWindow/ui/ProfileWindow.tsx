@@ -1,22 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import cls from './ProfileWindow.module.scss'
 import {MoreOutlined} from "@ant-design/icons";
 import defaultAvatar from 'shared/assets/defaultAvatar.png'
-import {useSelector} from "react-redux";
-import {getUserData} from "entities/User";
+import {useDispatch, useSelector} from "react-redux";
+import {getUserData, logoutUser} from "entities/User";
 
 
 export const ProfileWindow = () => {
+    const [logoutVisible, setLogoutVisible] = useState(false);
     const user = useSelector(getUserData)
+    const dispatch = useDispatch()
+
+    const showLogout = () => {
+        setLogoutVisible(!logoutVisible)
+    }
+
+    const logout = () => {
+        // @ts-ignore
+        dispatch(logoutUser())
+    }
 
     return (
-        <div className={cls.profileWindow}>
-            <img src={defaultAvatar} alt="icon" className={cls.avatar}/>
-            <div>
-                <p className={cls.fullName}>{user.full_name}</p>
-                <p className={cls.userName}>@{user.user_name}</p>
+        <div className={cls.window}>
+            {logoutVisible && <div>
+                <button onClick={logout}>logout</button>
+            </div>}
+            <div onClick={showLogout} className={cls.profileWindow}>
+                <img src={defaultAvatar} alt="icon" className={cls.avatar}/>
+                <div>
+                    <p className={cls.fullName}>{user.full_name}</p>
+                    <p className={cls.userName}>@{user.user_name}</p>
+                </div>
+                <MoreOutlined className={cls.points} />
             </div>
-            <MoreOutlined className={cls.points} />
         </div>
     );
 };

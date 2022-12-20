@@ -56,7 +56,7 @@ export const LoginUser = () => {
 
     const login = () => {
         // @ts-ignore
-        dispatch(loginByEmail({email: email, password: password}))
+        dispatch(loginByEmail({email: email, password: password}));
     }
 
     return (
