@@ -6,6 +6,7 @@ import {ReplyIcon} from "shared/assets/icons/ReplyIcon";
 import {RetweetIcon} from "shared/assets/icons/RetweetIcon";
 import {Tweet} from "entities/Tweet";
 import defaultAvatar from 'shared/assets/defaultAvatar.png'
+import {MoreOutlined} from "@ant-design/icons";
 
 export interface TweetCardProps {
     tweet: Tweet
@@ -29,6 +30,9 @@ export const TweetCard: React.FC<TweetCardProps> = (props) => {
                         <li>{tweet.user.full_name}</li>
                         <li style={{color: "#6e767d"}}>@{tweet.user.user_name}</li>
                         <li>{tweet.date}</li>
+                        <li>
+                            <MoreOutlined className={cls.points} />
+                        </li>
                     </ul>
                     <div className={cls.tweetText}>
                         {tweet.text}

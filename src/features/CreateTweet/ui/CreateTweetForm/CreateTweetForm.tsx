@@ -12,23 +12,34 @@ import {getTweetText} from "../../model/selectors/getTweetText/getTweetText";
 import {createTweet} from "../../model/services/createTweet/createTweet";
 import defaultAvatar from 'shared/assets/defaultAvatar.png'
 import {Input} from "antd";
+import {
+    createTweetModalActions,
+    getCreateTweetModalIsVisible,
+    getCreateTweetModalText
+} from "features/CreateTweetModal";
 
 const {TextArea} = Input
 
 export const CreateTweetForm = () => {
     const tweetText = useSelector(getTweetText)
+    const createTweetModalIsVisible = useSelector(getCreateTweetModalIsVisible)
+    const createTweetModalText = useSelector(getCreateTweetModalText)
     const dispatch = useDispatch()
 
     const onChangeTweetText = (e: { target: { value: any; }; }) => {
-        dispatch(createTweetActions.setText(e.target.value))
+        if(createTweetModalIsVisible) {
+            dispatch(createTweetModalActions.setText(e.target.value))
+        } else {
+            dispatch(createTweetActions.setText(e.target.value))
+        }
     }
 
     const click = () => {
-        if (!tweetText) {
+        if (!tweetText && !createTweetModalText) {
             return;
         }
         // @ts-ignore
-        dispatch(createTweet(tweetText))
+        dispatch(createTweet(createTweetModalIsVisible ? createTweetModalText : tweetText))
     }
 
     return (
@@ -45,7 +56,7 @@ export const CreateTweetForm = () => {
                     className={cls.textarea}
                     placeholder="What's happening?"
                     bordered={false}
-                    value={tweetText}
+                    value={createTweetModalIsVisible ? createTweetModalText : tweetText}
                     onChange={onChangeTweetText}
                     autoSize
                 />

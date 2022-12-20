@@ -2,6 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 import {createTweetActions} from "../../slice/createTweetSlice";
 import {feedActions} from "features/Feed";
+import {createTweetModalActions} from "../../../../CreateTweetModal";
 
 export const createTweet = createAsyncThunk(
     "createTweet",
@@ -13,11 +14,13 @@ export const createTweet = createAsyncThunk(
 
             thunkAPI.dispatch(feedActions.setLastUserCreatedTweet(response.data))
             thunkAPI.dispatch(createTweetActions.setText(''))
+            thunkAPI.dispatch(createTweetModalActions.setText(''))
+            thunkAPI.dispatch(createTweetModalActions.closeCreateTweetModal())
 
             return response.data;
         } catch (e) {
             console.log(e);
-            return thunkAPI.rejectWithValue("incorrect username or password");
+            return thunkAPI.rejectWithValue("longer than 255 symbols");
         }
     }
 );

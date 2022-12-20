@@ -5,11 +5,13 @@ import {AppRoute} from "./providers/RouteProvider";
 import {useDispatch, useSelector} from "react-redux";
 import {getUserIsAuth, userActions} from "../entities/User";
 import {LoginFooter} from "../widgets/LoginFooter";
-import {getLoginUserIsVisible, LoginUser} from "../features/LoginUser";
+import {getLoginUserIsVisible, LoginUser} from "features/LoginUser";
+import {CreateTweetModal, getCreateTweetModalIsVisible} from "features/CreateTweetModal";
 
 export const App = () => {
     const isAuth = useSelector(getUserIsAuth)
-    const isVisible = useSelector(getLoginUserIsVisible)
+    const loginUserIsVisible = useSelector(getLoginUserIsVisible)
+    const createTweetModalIsVisible = useSelector(getCreateTweetModalIsVisible)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -33,7 +35,8 @@ export const App = () => {
                 </div>
                 <RightSidebar />
             </div>
-            {isVisible && <LoginUser />}
+            {createTweetModalIsVisible && <CreateTweetModal />}
+            {loginUserIsVisible && <LoginUser />}
             {!isAuth && <LoginFooter />}
         </>
       );

@@ -5,11 +5,13 @@ import {feedReducer} from "features/Feed";
 import {tweetReducer} from "entities/Tweet";
 import {userReducer} from "entities/User";
 import {loginUserReducer} from "features/LoginUser";
+import {createTweetModalReducer} from "features/CreateTweetModal";
 
 export function createReduxStore(initialState?: StateSchema) {
 
     const rootReducer: ReducersMapObject<StateSchema> = {
         tweetForm: createTweetReducer,
+        tweetFormModal: createTweetModalReducer,
         feed: feedReducer,
         tweet: tweetReducer,
         user: userReducer,

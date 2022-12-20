@@ -1,9 +1,9 @@
 .tweetCard {
+  position: relative;
   padding: 15px;
   border-bottom: 2px rgba(86, 87, 96, 0.26) solid;
   display: flex;
   gap: 10px;
-  justify-content: normal;
   align-items: center;
 }
 
@@ -31,6 +31,8 @@
 
 .tweetSubs {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
   gap: 10px;
   font-size: 15px;
   font-weight: 700;
@@ -93,7 +95,22 @@
 
 }
 
+.points {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  rotate: 90deg;
+  font-size: 22px;
+  cursor: pointer;
+  &:hover {
+    transition: 0.3s all;
+    background-color: rgba(0, 104, 171, 0.34);
+  }
 
-
-
-
+}

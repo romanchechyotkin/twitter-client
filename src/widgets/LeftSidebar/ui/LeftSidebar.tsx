@@ -12,11 +12,18 @@ import {AppLink} from "shared/ui/AppLink/AppLink";
 import {AuthAppRoutes} from "shared/config/routeConfig/routeConfig";
 import {Button} from "antd";
 import {ProfileWindow} from "../../ProfileWindow";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getUserIsAuth} from "entities/User";
+import {createTweetModalActions} from "features/CreateTweetModal";
 
 export const LeftSidebar = () => {
     const isAuth = useSelector(getUserIsAuth)
+    const dispatch = useDispatch()
+
+    const openCreateTweetModal = () => {
+        dispatch(createTweetModalActions.openCreateTweetModal())
+        document.body.style.overflow = "hidden"
+    }
 
     return (
         !isAuth
@@ -101,6 +108,7 @@ export const LeftSidebar = () => {
                 className={cls.tweetBtn}
                 type="primary"
                 size={"large"}
+                onClick={openCreateTweetModal}
             >
                 Tweet
             </Button>
