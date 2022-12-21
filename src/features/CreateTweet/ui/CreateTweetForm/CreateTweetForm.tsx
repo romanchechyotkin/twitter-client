@@ -17,14 +17,18 @@ import {
     getCreateTweetModalIsVisible,
     getCreateTweetModalText
 } from "features/CreateTweetModal";
+import {getUserData} from "entities/User";
 
 const {TextArea} = Input
 
 export const CreateTweetForm = () => {
+    const user = useSelector(getUserData)
     const tweetText = useSelector(getTweetText)
     const createTweetModalIsVisible = useSelector(getCreateTweetModalIsVisible)
     const createTweetModalText = useSelector(getCreateTweetModalText)
     const dispatch = useDispatch()
+
+    const userAvatar = user.avatar ? `http://localhost:5000/${user.avatar}` : defaultAvatar
 
     const onChangeTweetText = (e: { target: { value: any; }; }) => {
         if(createTweetModalIsVisible) {
@@ -49,7 +53,7 @@ export const CreateTweetForm = () => {
                 to={'/profile'}
                 // to={AppRoutes.PROFILE}
             >
-                <img className={cls.avatar} src={defaultAvatar} alt="avatar"/>
+                <img className={cls.avatar} src={userAvatar} alt="avatar"/>
             </AppLink>
             <div className={cls.form}>
                 <TextArea

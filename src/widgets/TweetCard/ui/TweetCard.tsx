@@ -15,6 +15,8 @@ export interface TweetCardProps {
 export const TweetCard: React.FC<TweetCardProps> = (props) => {
     const {tweet} = props
 
+    const userAvatar = tweet.user.avatar ? `http://localhost:5000/${tweet.user.avatar}` : defaultAvatar
+
     return (
         <div className={cls.tweetCard}>
             <AppLink
@@ -22,7 +24,7 @@ export const TweetCard: React.FC<TweetCardProps> = (props) => {
                 to={'/profile'}
                 // to={AppRoutes.PROFILE}
             >
-                <img className={cls.avatar} src={tweet.user.avatar ? tweet.user.avatar : defaultAvatar} alt="avatar"/>
+                <img className={cls.avatar} src={userAvatar} alt="avatar"/>
             </AppLink>
             <div className={cls.mediaContent}>
                 <div className={cls.content}>

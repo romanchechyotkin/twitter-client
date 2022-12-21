@@ -11,6 +11,8 @@ export const ProfileWindow = () => {
     const user = useSelector(getUserData)
     const dispatch = useDispatch()
 
+    const userAvatar = user.avatar ? `http://localhost:5000/${user.avatar}` : defaultAvatar
+
     const showLogout = () => {
         setLogoutVisible(!logoutVisible)
     }
@@ -26,7 +28,7 @@ export const ProfileWindow = () => {
                 <button onClick={logout}>logout</button>
             </div>}
             <div onClick={showLogout} className={cls.profileWindow}>
-                <img src={defaultAvatar} alt="icon" className={cls.avatar}/>
+                <img src={userAvatar} alt="icon" className={cls.avatar}/>
                 <div>
                     <p className={cls.fullName}>{user.full_name}</p>
                     <p className={cls.userName}>@{user.user_name}</p>
