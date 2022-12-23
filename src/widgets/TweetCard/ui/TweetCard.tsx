@@ -7,6 +7,8 @@ import {RetweetIcon} from "shared/assets/icons/RetweetIcon";
 import {Tweet} from "entities/Tweet";
 import defaultAvatar from 'shared/assets/defaultAvatar.png'
 import {MoreOutlined} from "@ant-design/icons";
+import {getUserPageForLook} from "../../../entities/User";
+import {useDispatch} from "react-redux";
 
 export interface TweetCardProps {
     tweet: Tweet
@@ -14,14 +16,20 @@ export interface TweetCardProps {
 
 export const TweetCard: React.FC<TweetCardProps> = (props) => {
     const {tweet} = props
-
+    const dispatch = useDispatch()
     const userAvatar = tweet.user.avatar ? `http://localhost:5000/${tweet.user.avatar}` : defaultAvatar
+
+    const loadUserInfoForLook = () => {
+        // @ts-ignore
+        dispatch(getUserPageForLook(tweet.user._id))
+    }
 
     return (
         <div className={cls.tweetCard}>
             <AppLink
                 className={cls.avatarLink}
-                to={'/profile'}
+                to={`/${tweet.user.user_name}`}
+                onClick={loadUserInfoForLook}
                 // to={AppRoutes.PROFILE}
             >
                 <img className={cls.avatar} src={userAvatar} alt="avatar"/>

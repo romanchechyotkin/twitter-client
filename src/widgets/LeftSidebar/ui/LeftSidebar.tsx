@@ -13,16 +13,22 @@ import {AuthAppRoutes} from "shared/config/routeConfig/routeConfig";
 import {Button} from "antd";
 import {ProfileWindow} from "../../ProfileWindow";
 import {useDispatch, useSelector} from "react-redux";
-import {getUserIsAuth} from "entities/User";
+import {getUserCurrentData, getUserIsAuth, getUserPageForLook} from "entities/User";
 import {createTweetModalActions} from "features/CreateTweetModal";
 
 export const LeftSidebar = () => {
     const isAuth = useSelector(getUserIsAuth)
+    const user = useSelector(getUserCurrentData)
     const dispatch = useDispatch()
 
     const openCreateTweetModal = () => {
         dispatch(createTweetModalActions.openCreateTweetModal())
         document.body.style.overflow = "hidden"
+    }
+
+    const loadUserInfoForLook = () => {
+        // @ts-ignore
+        dispatch(getUserPageForLook(user._id))
     }
 
     return (
@@ -94,8 +100,9 @@ export const LeftSidebar = () => {
                 lists
             </AppLink>
             <AppLink
-                to={AuthAppRoutes.PROFILE}
+                to={user.user_name}
                 className={cls.sidebarItem}
+                onClick={loadUserInfoForLook}
             >
                 <ProfileIcon />
                 profile

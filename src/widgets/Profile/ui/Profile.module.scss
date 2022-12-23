@@ -1,0 +1,43 @@
+.background {
+  z-index: 1;
+  margin-top: 52px;
+  height: 200px;
+  background-color: rgba(86, 87, 96, 0.26);
+}
+
+.media {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar {
+  margin-top: -70px;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+
+  .fullName {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .userName {
+    color: #6e767d;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .followings {
+    display: flex;
+    gap: 15px;
+  }
+
+}

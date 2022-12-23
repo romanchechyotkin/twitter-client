@@ -3,12 +3,12 @@ import cls from './ProfileWindow.module.scss'
 import {MoreOutlined} from "@ant-design/icons";
 import defaultAvatar from 'shared/assets/defaultAvatar.png'
 import {useDispatch, useSelector} from "react-redux";
-import {getUserData, logoutUser} from "entities/User";
+import {getUserCurrentData, logoutUser} from "entities/User";
 
 
 export const ProfileWindow = () => {
     const [logoutVisible, setLogoutVisible] = useState(false);
-    const user = useSelector(getUserData)
+    const user = useSelector(getUserCurrentData)
     const dispatch = useDispatch()
 
     const userAvatar = user.avatar ? `http://localhost:5000/${user.avatar}` : defaultAvatar

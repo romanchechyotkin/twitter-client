@@ -17,12 +17,12 @@ import {
     getCreateTweetModalIsVisible,
     getCreateTweetModalText
 } from "features/CreateTweetModal";
-import {getUserData} from "entities/User";
+import {getUserCurrentData, getUserPageForLook} from "entities/User";
 
 const {TextArea} = Input
 
 export const CreateTweetForm = () => {
-    const user = useSelector(getUserData)
+    const user = useSelector(getUserCurrentData)
     const tweetText = useSelector(getTweetText)
     const createTweetModalIsVisible = useSelector(getCreateTweetModalIsVisible)
     const createTweetModalText = useSelector(getCreateTweetModalText)
@@ -46,15 +46,25 @@ export const CreateTweetForm = () => {
         dispatch(createTweet(createTweetModalIsVisible ? createTweetModalText : tweetText))
     }
 
+    const loadUserInfoForLook = () => {
+        // @ts-ignore
+        dispatch(getUserPageForLook(user._id))
+    }
+
     return (
         <div className={cls.tweetForm}>
-            <AppLink
-                className={cls.avatarLink}
-                to={'/profile'}
-                // to={AppRoutes.PROFILE}
-            >
+            {createTweetModalIsVisible ?
                 <img className={cls.avatar} src={userAvatar} alt="avatar"/>
-            </AppLink>
+                :
+                <AppLink
+                    className={cls.avatarLink}
+                    onClick={loadUserInfoForLook}
+                    to={`/${user.user_name}`}
+
+                >
+                    <img className={cls.avatar} src={userAvatar} alt="avatar"/>
+                </AppLink>
+            }
             <div className={cls.form}>
                 <TextArea
                     className={cls.textarea}
@@ -82,7 +92,7 @@ export const CreateTweetForm = () => {
                             <PlanIcon />
                         </li>
                         <li>
-                            <img src="" alt=""/>
+                            <img src="" alt=""/> {/* TODO: create geoposition*/}
                         </li>
                     </ul>
                     <Button

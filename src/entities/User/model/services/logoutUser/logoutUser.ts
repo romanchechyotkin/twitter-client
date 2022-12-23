@@ -12,7 +12,7 @@ export const logoutUser = createAsyncThunk(
 
             thunkAPI.dispatch(createTweetActions.setText(''))
             thunkAPI.dispatch(createTweetModalActions.setText(''))
-            thunkAPI.dispatch(userActions.logoutUser())
+            thunkAPI.dispatch(userActions.logoutCurrentUser())
 
             return response.data;
         } catch (e) {

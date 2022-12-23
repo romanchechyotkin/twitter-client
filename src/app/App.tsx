@@ -18,11 +18,11 @@ export const App = () => {
         const accessToken = JSON.parse(localStorage.getItem('accessToken') as string)
         const user = JSON.parse(localStorage.getItem('user') as string)
         if (!user || !accessToken) {
-            dispatch(userActions.logoutUser())
+            dispatch(userActions.logoutCurrentUser())
         } else {
             const user = JSON.parse(localStorage.getItem('user') as string)
-            dispatch(userActions.setUser(user))
-            dispatch(userActions.initUser())
+            dispatch(userActions.setCurrentUser(user))
+            dispatch(userActions.initCurrentUser())
         }
     }, [dispatch]);
 

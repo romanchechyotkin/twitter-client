@@ -14,7 +14,7 @@ export const loginByEmail = createAsyncThunk(
 
             thunkAPI.dispatch(userActions.login())
             thunkAPI.dispatch(loginUserActions.closeLoginUser())
-            thunkAPI.dispatch(userActions.setUser(response.data.user))
+            thunkAPI.dispatch(userActions.setCurrentUser(response.data.user))
 
             return response.data
         } catch (e) {

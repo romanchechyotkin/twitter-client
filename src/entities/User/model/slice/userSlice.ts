@@ -3,7 +3,17 @@ import {UserSchema} from "../types/userSchema";
 
 const initialState: UserSchema = {
     isAuth: false,
-    userData: {
+    currentUserData: {
+        _id: '',
+        email: '',
+        avatar: '',
+        full_name: '',
+        user_name: '',
+        follows: [],
+        followers: [],
+        isConfirmed: false,
+    },
+    user: {
         _id: '',
         email: '',
         avatar: '',
@@ -21,17 +31,20 @@ export const userSlice = createSlice({
     reducers: {
         login: state => {state.isAuth = true},
         logout: state => {state.isAuth = false},
-        setUser: (state, action) => {
-            state.userData = action.payload
+        setCurrentUser: (state, action) => {
+            state.currentUserData = action.payload
         },
-        logoutUser: (state) => {
+        logoutCurrentUser: (state) => {
             localStorage.removeItem("accessToken");
             localStorage.removeItem("user");
             state.isAuth = false
         },
-        initUser: (state) => {
+        initCurrentUser: (state) => {
             state.isAuth = true
-            state.userData = JSON.parse(localStorage.getItem('user') as string)
+            state.currentUserData = JSON.parse(localStorage.getItem('user') as string)
+        },
+        setUserForLook: (state, action) => {
+            state.user = action.payload
         }
     }
 })

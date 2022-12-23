@@ -27,7 +27,7 @@ export const AuthRoutePath: Record<AuthAppRoutes, string> = {
     [AuthAppRoutes.MESSAGES]: "/messages",
     [AuthAppRoutes.BOOKMARKS]: "/bookmarks",
     [AuthAppRoutes.LISTS]: "/lists",
-    [AuthAppRoutes.PROFILE]: "/profile",
+    [AuthAppRoutes.PROFILE]: "/:profile",
     [AuthAppRoutes.ERROR]: "*"
 };
 
@@ -97,7 +97,7 @@ export const routeAuthConfig: Record<AuthAppRoutes, RouteProps> = {
 export const routeNotAuthConfig: Record<NotAuthAppRoutes, RouteProps> = {
     [NotAuthAppRoutes.MAIN]: {
         path: NotAuthRoutePath.main,
-        element: <Navigate to={'/explore'} />
+        element: <Navigate to={'/home'} />
     },
     [NotAuthAppRoutes.Home]: {
         path: NotAuthRoutePath.home,
@@ -105,7 +105,7 @@ export const routeNotAuthConfig: Record<NotAuthAppRoutes, RouteProps> = {
     },
     [NotAuthAppRoutes.ERROR]: {
         path: NotAuthRoutePath.error,
-        element: <Navigate to={'/explore'} />
+        element: <Navigate to={'/home'} />
     }
 };
 
