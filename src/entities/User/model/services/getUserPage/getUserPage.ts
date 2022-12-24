@@ -8,8 +8,6 @@ export const getUserPageForLook = createAsyncThunk(
         try {
             const response = await axios.get(`http://localhost:5000/api/user/${userId}`);
 
-            console.log(response.data)
-
             thunkAPI.dispatch(userActions.setUserForLook(response.data))
 
             return response.data;
