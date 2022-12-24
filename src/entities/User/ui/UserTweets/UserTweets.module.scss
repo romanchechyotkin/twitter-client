@@ -1,0 +1,17 @@
+.subs {
+  display: flex;
+  height: 50px;
+  border-bottom: 2px solid rgba(86, 87, 96, 0.26);
+}
+
+.item {
+  height: 50px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(86, 87, 96, 0.26);
+  }
+}
