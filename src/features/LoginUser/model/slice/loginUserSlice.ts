@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {LoginUserSchema} from "../types/loginUserSchema";
-import {checkUserEmail} from "../services/checkUserEmail/checkUserEmail";
+import {checkLoginUserEmail} from "../services/checkUserEmail/checkUserEmail";
 import {loginByEmail} from "../services/loginByEmail/loginByEmail";
 
 const initialState: LoginUserSchema = {
@@ -31,14 +31,14 @@ export const loginUserSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(checkUserEmail.pending, (state) => {
+            .addCase(checkLoginUserEmail.pending, (state) => {
                 state.isLoading = true;
                 state.error = undefined;
             })
-            .addCase(checkUserEmail.fulfilled, (state) => {
+            .addCase(checkLoginUserEmail.fulfilled, (state) => {
                 state.isLoading = false;
             })
-            .addCase(checkUserEmail.rejected, (state, action) => {
+            .addCase(checkLoginUserEmail.rejected, (state, action) => {
                 state.isLoading = false;
                 // @ts-ignore
                 state.error = action.payload;

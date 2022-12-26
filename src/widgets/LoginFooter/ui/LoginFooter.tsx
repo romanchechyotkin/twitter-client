@@ -3,12 +3,18 @@ import cls from './LoginFooter.module.scss'
 import {Button} from "antd";
 import {useDispatch} from "react-redux";
 import {loginUserActions} from "features/LoginUser";
+import {registrationUserActions} from "../../../features/RegistrationUser";
 
 export const LoginFooter = () => {
     const dispatch = useDispatch()
 
     const openLoginUserWindow = () => {
         dispatch(loginUserActions.openLoginUser())
+        document.body.style.overflow = "hidden"
+    }
+
+    const openRegistrationUserWindow = () => {
+        dispatch(registrationUserActions.openRegistrationUser())
         document.body.style.overflow = "hidden"
     }
 
@@ -20,7 +26,7 @@ export const LoginFooter = () => {
             </div>
             <div className={cls.buttons}>
                 <Button onClick={openLoginUserWindow}>Login In</Button>
-                <Button>Sign Up</Button>
+                <Button onClick={openRegistrationUserWindow}>Sign Up</Button>
             </div>
         </div>
     );

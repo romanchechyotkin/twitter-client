@@ -2,8 +2,8 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 import {loginUserActions} from "../../slice/loginUserSlice";
 
-export const checkUserEmail = createAsyncThunk(
-    "loginUser/checkUserEmail",
+export const checkLoginUserEmail = createAsyncThunk(
+    "loginUser/checkRegistrationUserEmail",
     async (email, thunkAPI) => {
         try {
             const response = await axios.get(`http://localhost:5000/api/auth/checkEmail/${email}`);

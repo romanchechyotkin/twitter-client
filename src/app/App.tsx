@@ -7,10 +7,15 @@ import {getUserIsAuth, userActions} from "../entities/User";
 import {LoginFooter} from "../widgets/LoginFooter";
 import {getLoginUserIsVisible, LoginUser} from "features/LoginUser";
 import {CreateTweetModal, getCreateTweetModalIsVisible} from "features/CreateTweetModal";
+import {
+    getRegistrationUserIsVisible
+} from "features/RegistrationUser";
+import {RegistrationUser} from "features/RegistrationUser";
 
 export const App = () => {
     const isAuth = useSelector(getUserIsAuth)
     const loginUserIsVisible = useSelector(getLoginUserIsVisible)
+    const registrationUserIsVisible = useSelector(getRegistrationUserIsVisible)
     const createTweetModalIsVisible = useSelector(getCreateTweetModalIsVisible)
     const dispatch = useDispatch()
 
@@ -37,7 +42,8 @@ export const App = () => {
             </div>
             {createTweetModalIsVisible && <CreateTweetModal />}
             {loginUserIsVisible && <LoginUser />}
+            {registrationUserIsVisible && <RegistrationUser />}
             {!isAuth && <LoginFooter />}
         </>
-      );
+    );
 };

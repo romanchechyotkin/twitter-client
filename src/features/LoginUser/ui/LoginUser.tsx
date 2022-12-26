@@ -8,7 +8,7 @@ import {CloseOutlined, TwitterOutlined} from "@ant-design/icons";
 import {loginUserActions} from "../model/slice/loginUserSlice";
 import {getLoginUserPassword} from "../model/selectors/getLoginUserPassword/getLoginUserPassword";
 import {getLoginUserEmail} from "../model/selectors/getLoginUserEmail/getLoginUserEmail";
-import {checkUserEmail} from "../model/services/checkUserEmail/checkUserEmail";
+import {checkLoginUserEmail} from "../model/services/checkUserEmail/checkUserEmail";
 import {getLoginUserCurrentStep} from "../model/selectors/getLoginUserCurrentStep/getLoginUserCurrentStep";
 import {loginByEmail} from "../model/services/loginByEmail/loginByEmail";
 
@@ -51,7 +51,7 @@ export const LoginUser = () => {
 
     const checkEmail = () => {
         // @ts-ignore
-        dispatch(checkUserEmail(email))
+        dispatch(checkLoginUserEmail(email))
     }
 
     const login = () => {
@@ -97,7 +97,6 @@ export const LoginUser = () => {
                                 </Button>
                             )}
                         </div>
-                        <Button className={cls.btn}>forgot password?</Button>
                     </div>
                 </div>
             </div>
