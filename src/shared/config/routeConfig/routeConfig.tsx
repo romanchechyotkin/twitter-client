@@ -35,22 +35,12 @@ export enum NotAuthAppRoutes {
     MAIN="main",
     Home='home',
     ERROR='error',
-    // NOTIFICATIONS='notifications',
-    // MESSAGES='messages',
-    // BOOKMARKS='bookmarks',
-    // LISTS='lists',
-    // PROFILE='profile',
 }
 
 export const NotAuthRoutePath: Record<NotAuthAppRoutes, string> = {
     [AuthAppRoutes.MAIN]: "/",
     [AuthAppRoutes.HOME]: "/home",
     [AuthAppRoutes.ERROR]: "*",
-    // [AuthAppRoutes.NOTIFICATIONS]: "/notifications",
-    // [AuthAppRoutes.MESSAGES]: "/messages",
-    // [AuthAppRoutes.BOOKMARKS]: "/bookmarks",
-    // [AuthAppRoutes.LISTS]: "/lists",
-    // [AuthAppRoutes.PROFILE]: "/profile",
 };
 
 

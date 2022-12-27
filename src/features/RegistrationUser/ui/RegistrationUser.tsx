@@ -13,6 +13,10 @@ import {getRegistrationUserUserName} from "../model/selectors/getRegistrationUse
 import {getRegistrationUserFullName} from "../model/selectors/getRegistrationUserFullName/getRegistrationUserFullName";
 import {checkRegistrationUserEmail} from '../model/services/checkRegistrationUserEmail/checkRegistrationUserEmail'
 import {registrationByEmail} from '../model/services/registrationByEmail/registrationByEmail'
+import {
+    getRegistrationUserIsLoading
+} from "../model/selectors/getRegistrationUserIsLoading/getRegistrationUserIsLoading";
+import { Loader } from 'shared/ui/Loader/Loader';
 
 const steps = [
     {
@@ -37,6 +41,7 @@ export const RegistrationUser = () => {
     const fullName = useSelector(getRegistrationUserFullName)
     const currentStep = useSelector(getRegistrationUserCurrentStep)
     const isVisible = useSelector(getRegistrationUserIsVisible)
+    const isLoading = useSelector(getRegistrationUserIsLoading)
     const dispatch = useDispatch()
 
     const onContentClick = (e: React.MouseEvent) => {
@@ -136,7 +141,7 @@ export const RegistrationUser = () => {
                                     className={cls.btn}
                                     onClick={registration}
                                 >
-                                    Registration
+                                    {isLoading ? <Loader /> : 'Registration'}
                                 </Button>
                             )}
                         </div>

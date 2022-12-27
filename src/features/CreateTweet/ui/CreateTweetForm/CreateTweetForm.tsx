@@ -18,12 +18,15 @@ import {
     getCreateTweetModalText
 } from "features/CreateTweetModal";
 import {getUserCurrentData, getUserPageForLook} from "entities/User";
+import {getTweetIsLoading} from "../../model/selectors/getTweetIsLoading/getTweetIsLoading";
+import { Loader } from 'shared/ui/Loader/Loader';
 
 const {TextArea} = Input
 
 export const CreateTweetForm = () => {
     const user = useSelector(getUserCurrentData)
     const tweetText = useSelector(getTweetText)
+    const isLoading = useSelector(getTweetIsLoading)
     const createTweetModalIsVisible = useSelector(getCreateTweetModalIsVisible)
     const createTweetModalText = useSelector(getCreateTweetModalText)
     const dispatch = useDispatch()
@@ -101,7 +104,7 @@ export const CreateTweetForm = () => {
                         size={"middle"}
                         onClick={click}
                     >
-                        Tweet
+                        {isLoading ? <Loader /> : 'Tweet'}
                     </Button>
                 </div>
             </div>

@@ -7,6 +7,7 @@ import { getRegistrationUserCurrentStep } from "./model/selectors/getRegistratio
 import { getRegistrationUserIsVisible } from "./model/selectors/getRegistrationUserIsVisible/getRegistrationUserIsVisible";
 import { getRegistrationUserUserName } from "./model/selectors/getRegistrationUserUserName/getRegistrationUserUserName";
 import { getRegistrationUserFullName } from "./model/selectors/getRegistrationUserFullName/getRegistrationUserFullName";
+import { getRegistrationUserIsLoading } from "./model/selectors/getRegistrationUserIsLoading/getRegistrationUserIsLoading";
 
 export {
     RegistrationUser,
@@ -20,4 +21,5 @@ export {
     getRegistrationUserIsVisible,
     getRegistrationUserUserName,
     getRegistrationUserFullName,
+    getRegistrationUserIsLoading
 }

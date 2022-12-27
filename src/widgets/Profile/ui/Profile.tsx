@@ -1,15 +1,16 @@
 import { Button } from 'antd';
 import React from 'react';
 import cls from './Profile.module.scss'
-import {User} from "entities/User";
+import {getUserCurrentData, User} from "entities/User";
 import defaultAvatar from "shared/assets/defaultAvatar.png";
+import {useSelector} from "react-redux";
 
 export interface ProfileProps {
     user: User
 }
 
 export const Profile: React.FC<ProfileProps> = ({user}) => {
-
+    const currentUser = useSelector(getUserCurrentData)
     const userAvatar = user.avatar ? `http://localhost:5000/${user.avatar}` : defaultAvatar
 
     return (
@@ -17,12 +18,15 @@ export const Profile: React.FC<ProfileProps> = ({user}) => {
             <div className={cls.background} />
             <div className={cls.media}>
                 <img className={cls.avatar} src={userAvatar} alt="avatar" />
-                <Button
+                {currentUser._id === user._id ? <Button
                     type={'text'}
                     style={{color: "white", border: "1px solid white"}}
                 >
-                    change profile
+                    edit profile
                 </Button>
+                :
+                    <Button>Follow</Button>
+                }
             </div>
             <div className={cls.userInfo}>
                 <div className={cls.fullName}>{user.full_name}</div>

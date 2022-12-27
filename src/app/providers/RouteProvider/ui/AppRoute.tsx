@@ -3,6 +3,7 @@ import {Route, Routes} from "react-router-dom";
 import {routeAuthConfig, routeNotAuthConfig} from "shared/config/routeConfig/routeConfig";
 import {useSelector} from "react-redux";
 import {getUserIsAuth} from "entities/User";
+import {Loader} from "shared/ui/Loader/Loader";
 
 export const AppRoute = () => {
     const isAuth = useSelector(getUserIsAuth)
@@ -14,7 +15,7 @@ export const AppRoute = () => {
                     key={path}
                     path={path}
                     element={(
-                        <Suspense fallback={<h1>loading...</h1>}>
+                        <Suspense fallback={<Loader />}>
                             <div>{element}</div>
                         </Suspense>
                     )}

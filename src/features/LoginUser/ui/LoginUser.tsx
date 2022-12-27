@@ -11,6 +11,8 @@ import {getLoginUserEmail} from "../model/selectors/getLoginUserEmail/getLoginUs
 import {checkLoginUserEmail} from "../model/services/checkUserEmail/checkUserEmail";
 import {getLoginUserCurrentStep} from "../model/selectors/getLoginUserCurrentStep/getLoginUserCurrentStep";
 import {loginByEmail} from "../model/services/loginByEmail/loginByEmail";
+import {getLoginUserIsLoading} from "../model/selectors/getLoginUserIsLoading/getLoginUserIsLoading";
+import { Loader } from 'shared/ui/Loader/Loader';
 
 const steps = [
     {
@@ -25,6 +27,7 @@ const steps = [
 
 export const LoginUser = () => {
     const currentStep = useSelector(getLoginUserCurrentStep)
+    const isLoading = useSelector(getLoginUserIsLoading)
     const isVisible = useSelector(getLoginUserIsVisible)
     const email = useSelector(getLoginUserEmail)
     const password = useSelector(getLoginUserPassword)
@@ -93,7 +96,7 @@ export const LoginUser = () => {
                                     className={cls.btn}
                                     onClick={login}
                                 >
-                                    Login
+                                    {isLoading ? <Loader/> : 'Login'}
                                 </Button>
                             )}
                         </div>
