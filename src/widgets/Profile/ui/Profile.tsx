@@ -1,9 +1,9 @@
 import { Button } from 'antd';
 import React from 'react';
 import cls from './Profile.module.scss'
-import {getUserCurrentData, User} from "entities/User";
+import {followUser, getUserCurrentData, getUserDataForLook, User} from "entities/User";
 import defaultAvatar from "shared/assets/defaultAvatar.png";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 export interface ProfileProps {
     user: User
@@ -12,7 +12,20 @@ export interface ProfileProps {
 export const Profile: React.FC<ProfileProps> = ({user}) => {
     const currentUser = useSelector(getUserCurrentData)
     const userAvatar = user.avatar ? `http://localhost:5000/${user.avatar}` : defaultAvatar
+    const userForLook = useSelector(getUserDataForLook)
+    const dispatch = useDispatch()
 
+    const follow = () => {
+        // @ts-ignore
+        dispatch(followUser(userForLook._id))
+    }
+
+    const checkFollow = () => {
+        // @ts-ignore
+        return currentUser.follows.includes(userForLook._id) ? "Unfollow" : "Follow"
+    }
+
+    // @ts-ignore
     return (
         <div>
             <div className={cls.background} />
@@ -25,7 +38,9 @@ export const Profile: React.FC<ProfileProps> = ({user}) => {
                     edit profile
                 </Button>
                 :
-                    <Button>Follow</Button>
+                    <Button onClick={follow}>
+                        {checkFollow()}
+                    </Button>
                 }
             </div>
             <div className={cls.userInfo}>

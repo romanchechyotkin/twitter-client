@@ -6,6 +6,7 @@ import { logoutUser } from "./model/services/logoutUser/logoutUser";
 import {userActions, userReducer, userSlice } from "./model/slice/userSlice";
 import type {UserSchema, User} from "./model/types/userSchema";
 import { UserTweets } from "./ui/UserTweets/UserTweets";
+import {followUser} from "./model/services/followUser/followUser";
 
 export {
     UserSchema,
@@ -19,4 +20,5 @@ export {
     logoutUser,
     User,
     UserTweets,
+    followUser
 }
