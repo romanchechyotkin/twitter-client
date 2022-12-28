@@ -1,15 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import cls from './UserTweets.module.scss'
 import {useDispatch, useSelector} from "react-redux";
-import {getChosenUserTweets} from "../../model/selectors/getChosenUserTweets/getChosenUserTweets";
-import {getUserTweets} from "../../model/services/getUserTweets/getUserTweets";
 import {getUserDataForLook} from "../../model/selectors/getUserDataForLook/getUserDataForLook";
-import {UserProfileFeed} from "widgets/UserProfileFeed";
+import {
+    allUserTweetsActions,
+    getAllUserTweets,
+    getAllUserTweetsIsVisible,
+    getAllUserTweetsService,
+    UserProfileFeed
+} from "features/AllUserTweets";
 
 export const UserTweets = () => {
     const chosenUser = useSelector(getUserDataForLook)
-    const userTweets = useSelector(getChosenUserTweets)
-    const [isActiveTweets, setIsActiveTweets] = useState(true);
+    const userTweets = useSelector(getAllUserTweets)
+    const allUserTweetsIsVisible = useSelector(getAllUserTweetsIsVisible)
     const [isActiveReplies, setIsActiveReplies] = useState(false);
     const [isActiveMedia, setIsActiveMedia,] = useState(false);
     const [isActiveLikes, setIsActiveLikes] = useState(false);
@@ -17,44 +21,43 @@ export const UserTweets = () => {
 
     useEffect(() => {
         // @ts-ignore
-        dispatch(getUserTweets(chosenUser._id))
+        dispatch(getAllUserTweetsService(chosenUser._id))
     }, [chosenUser._id, dispatch]);
 
+    const tweetsHandler = () => {
+        dispatch(allUserTweetsActions.open())
+        setIsActiveLikes(false)
+        setIsActiveMedia(false)
+        setIsActiveReplies(false)
+    }
+
     const repliesHandler = () => {
-        setIsActiveTweets(false)
+        dispatch(allUserTweetsActions.close())
         setIsActiveLikes(false)
         setIsActiveMedia(false)
         setIsActiveReplies(true)
     }
 
     const mediaHandler = () => {
-        setIsActiveTweets(false)
+        dispatch(allUserTweetsActions.close())
         setIsActiveLikes(false)
         setIsActiveMedia(true)
         setIsActiveReplies(false)
     }
 
     const likesHandler = () => {
-        setIsActiveTweets(false)
+        dispatch(allUserTweetsActions.close())
         setIsActiveLikes(true)
         setIsActiveMedia(false)
         setIsActiveReplies(false)
     }
-
-    const tweetsHandler = () => {
-        setIsActiveTweets(true)
-        setIsActiveLikes(false)
-        setIsActiveMedia(false)
-        setIsActiveReplies(false)
-    }
-
 
     return (
         <div className={cls.userTweets}>
             <div className={cls.subs}>
                 <div
                     className={cls.item}
-                    style={{borderBottom: isActiveTweets ? `2px solid blue` : "none" }}
+                    style={{borderBottom: allUserTweetsIsVisible ? `2px solid blue` : "none" }}
                     onClick={tweetsHandler}
                 >
                     tweets
@@ -82,7 +85,7 @@ export const UserTweets = () => {
                 </div>
             </div>
             <div className={cls.tweets}>
-                <UserProfileFeed tweets={userTweets} />
+                {allUserTweetsIsVisible && <UserProfileFeed tweets={userTweets}/>}
             </div>
         </div>
     );

@@ -22,8 +22,7 @@ const initialState: UserSchema = {
         follows: [],
         followers: [],
         isConfirmed: false,
-    },
-    chosenUserTweets: []
+    }
 }
 
 export const userSlice = createSlice({
@@ -47,9 +46,6 @@ export const userSlice = createSlice({
         setUserForLook: (state, action) => {
             state.user = action.payload
         },
-        setChosenUserTweets: (state, action) => {
-            state.chosenUserTweets = action.payload
-        }
     }
 })
 

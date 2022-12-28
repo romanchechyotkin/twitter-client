@@ -6,7 +6,8 @@ import {tweetReducer} from "entities/Tweet";
 import {userReducer} from "entities/User";
 import {loginUserReducer} from "features/LoginUser";
 import {createTweetModalReducer} from "features/CreateTweetModal";
-import {registrationUserReducer} from "../../../../features/RegistrationUser";
+import {registrationUserReducer} from "features/RegistrationUser";
+import {allUserTweetsReducer} from "features/AllUserTweets";
 
 export function createReduxStore(initialState?: StateSchema) {
 
@@ -17,7 +18,8 @@ export function createReduxStore(initialState?: StateSchema) {
         tweet: tweetReducer,
         user: userReducer,
         registrationUser: registrationUserReducer,
-        loginUser: loginUserReducer
+        loginUser: loginUserReducer,
+        allUserTweets: allUserTweetsReducer
     }
 
     return configureStore<StateSchema>({

@@ -5,6 +5,7 @@ import {UserSchema} from "entities/User";
 import {LoginUserSchema} from "features/LoginUser";
 import {CreateTweetModalSchema} from "features/CreateTweetModal";
 import {RegistrationUserSchema} from "features/RegistrationUser";
+import {AllUserTweetsSchema} from "features/AllUserTweets";
 
 export interface StateSchema {
     tweetForm: CreateTweetSchema,
@@ -13,5 +14,6 @@ export interface StateSchema {
     tweet: TweetSchema,
     user: UserSchema,
     registrationUser: RegistrationUserSchema,
-    loginUser: LoginUserSchema
+    loginUser: LoginUserSchema,
+    allUserTweets: AllUserTweetsSchema
 }

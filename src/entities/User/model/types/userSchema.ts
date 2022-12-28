@@ -1,10 +1,7 @@
-import {Tweet} from "entities/Tweet";
-
 export interface UserSchema {
     isAuth: boolean;
     currentUserData: User,
     user: User,
-    chosenUserTweets: Tweet[]
 }
 
 export interface User {

@@ -1,14 +1,14 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
-import {userActions} from "../../slice/userSlice";
+import {allUserTweetsActions} from "../../slice/allUserTweetsSlice";
 
-export const getUserTweets = createAsyncThunk(
+export const getAllUserTweetsService = createAsyncThunk(
     "getUserTweets",
     async (userId, thunkAPI) => {
         try {
             const response = await axios.get(`http://localhost:5000/api/tweet/user/${userId}`);
 
-            thunkAPI.dispatch(userActions.setChosenUserTweets(response.data))
+            thunkAPI.dispatch(allUserTweetsActions.setTweets(response.data))
 
             return response.data;
         } catch (e) {
