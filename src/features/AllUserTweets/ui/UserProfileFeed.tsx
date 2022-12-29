@@ -1,6 +1,6 @@
 import React from 'react';
 import {Tweet} from "entities/Tweet";
-import {TweetCard} from "../../../widgets/TweetCard";
+import {TweetCard} from "widgets/TweetCard";
 
 export interface UserProfileFeedProps {
     tweets: Tweet[]

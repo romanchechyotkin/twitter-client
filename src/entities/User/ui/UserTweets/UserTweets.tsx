@@ -4,16 +4,18 @@ import {useDispatch, useSelector} from "react-redux";
 import {getUserDataForLook} from "../../model/selectors/getUserDataForLook/getUserDataForLook";
 import {
     allUserTweetsActions,
-    getAllUserTweets,
+    getAllUserTweets, getAllUserTweetsIsLoading,
     getAllUserTweetsIsVisible,
     getAllUserTweetsService,
     UserProfileFeed
 } from "features/AllUserTweets";
+import {Loader} from "../../../../shared/ui/Loader/Loader";
 
 export const UserTweets = () => {
     const chosenUser = useSelector(getUserDataForLook)
     const userTweets = useSelector(getAllUserTweets)
     const allUserTweetsIsVisible = useSelector(getAllUserTweetsIsVisible)
+    const allUserTweetsIsLoading = useSelector(getAllUserTweetsIsLoading)
     const [isActiveReplies, setIsActiveReplies] = useState(false);
     const [isActiveMedia, setIsActiveMedia,] = useState(false);
     const [isActiveLikes, setIsActiveLikes] = useState(false);
@@ -84,9 +86,11 @@ export const UserTweets = () => {
                     likes
                 </div>
             </div>
-            <div className={cls.tweets}>
-                {allUserTweetsIsVisible && <UserProfileFeed tweets={userTweets}/>}
-            </div>
+            {allUserTweetsIsLoading ? <Loader /> :
+                <div className={cls.tweets}>
+                    {allUserTweetsIsVisible && <UserProfileFeed tweets={userTweets}/>}
+                </div>
+            }
         </div>
     );
 };

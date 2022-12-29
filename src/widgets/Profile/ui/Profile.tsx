@@ -21,8 +21,6 @@ export const Profile: React.FC<ProfileProps> = ({user}) => {
         return currentUser.follows.includes(userForLook._id)
     }
 
-    console.log(checkFollow())
-
     return (
         <div>
             <div className={cls.background} />
