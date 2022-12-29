@@ -36,7 +36,7 @@ export const Profile: React.FC<ProfileProps> = ({user}) => {
                 </Button>
                 :
                     <div>
-                        {checkFollow() ? <UnfollowButton /> : <FollowButton id={userForLook._id} />}
+                        {checkFollow() ? <UnfollowButton id={userForLook._id} /> : <FollowButton id={userForLook._id} />}
                     </div>
                 }
             </div>

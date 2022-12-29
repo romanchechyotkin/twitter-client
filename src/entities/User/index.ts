@@ -7,6 +7,7 @@ import {userActions, userReducer, userSlice } from "./model/slice/userSlice";
 import type {UserSchema, User} from "./model/types/userSchema";
 import { UserTweets } from "./ui/UserTweets/UserTweets";
 import {followUser} from "./model/services/followUser/followUser";
+import { unfollowUser } from "./model/services/unfollowUser/unfollowUser";
 
 export {
     UserSchema,
@@ -20,5 +21,6 @@ export {
     logoutUser,
     User,
     UserTweets,
-    followUser
+    followUser,
+    unfollowUser
 }
