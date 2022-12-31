@@ -1,13 +1,15 @@
 import {getUserCurrentData} from "./model/selectors/getUserCurrentData/getUserData";
-import { getUserDataForLook } from "./model/selectors/getUserDataForLook/getUserDataForLook";
-import { getUserIsAuth } from "./model/selectors/getUserIsAuth/getUserIsAuth";
-import { getUserPageForLook } from "./model/services/getUserPage/getUserPage";
-import { logoutUser } from "./model/services/logoutUser/logoutUser";
-import {userActions, userReducer, userSlice } from "./model/slice/userSlice";
+import {getUserDataForLook} from "./model/selectors/getUserDataForLook/getUserDataForLook";
+import {getUserIsAuth} from "./model/selectors/getUserIsAuth/getUserIsAuth";
+import {getUserPageForLook} from "./model/services/getUserPage/getUserPage";
+import {logoutUser} from "./model/services/logoutUser/logoutUser";
+import {userActions, userReducer, userSlice} from "./model/slice/userSlice";
 import type {UserSchema, User} from "./model/types/userSchema";
-import { UserTweets } from "./ui/UserTweets/UserTweets";
+import {UserTweets} from "./ui/UserTweets/UserTweets";
 import {followUser} from "./model/services/followUser/followUser";
-import { unfollowUser } from "./model/services/unfollowUser/unfollowUser";
+import {unfollowUser} from "./model/services/unfollowUser/unfollowUser";
+import {uploadAvatar} from "./model/services/uploadAvatar/uploadAvatar";
+import { updateNames } from "./model/services/updateNames/updateNames";
 
 export {
     UserSchema,
@@ -22,5 +24,7 @@ export {
     User,
     UserTweets,
     followUser,
-    unfollowUser
+    unfollowUser,
+    uploadAvatar,
+    updateNames
 }

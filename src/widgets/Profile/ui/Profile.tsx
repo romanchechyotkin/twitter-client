@@ -1,11 +1,12 @@
 import { Button } from 'antd';
-import React from 'react';
+import React, {useState} from 'react';
 import cls from './Profile.module.scss'
 import {getUserCurrentData, getUserDataForLook, User} from "entities/User";
 import defaultAvatar from "shared/assets/defaultAvatar.png";
 import {useSelector} from "react-redux";
 import {FollowButton} from "widgets/FollowButton";
 import {UnfollowButton} from "widgets/UnfollowButton";
+import {EditProfileWindow} from "../../EditProfileWindow";
 
 export interface ProfileProps {
     user: User
@@ -15,10 +16,15 @@ export const Profile: React.FC<ProfileProps> = ({user}) => {
     const currentUser = useSelector(getUserCurrentData)
     const userForLook = useSelector(getUserDataForLook)
     const userAvatar = user.avatar ? `http://localhost:5000/${user.avatar}` : defaultAvatar
+    const [editWindowIsVisible, setEditWindowIsVisible] = useState(false);
 
     const checkFollow = () => {
         // @ts-ignore
         return currentUser.follows.includes(userForLook._id)
+    }
+
+    const openEditWindow = () => {
+        setEditWindowIsVisible(true)
     }
 
     return (
@@ -29,6 +35,7 @@ export const Profile: React.FC<ProfileProps> = ({user}) => {
                 {currentUser._id === user._id ? <Button
                     type={'text'}
                     style={{color: "white", border: "1px solid white"}}
+                    onClick={openEditWindow}
                 >
                     edit profile
                 </Button>
@@ -46,6 +53,7 @@ export const Profile: React.FC<ProfileProps> = ({user}) => {
                     <div>{user.followers.length} followers</div>
                 </div>
             </div>
+            {editWindowIsVisible && <EditProfileWindow isVisible={editWindowIsVisible} setIsVisible={setEditWindowIsVisible} />}
         </div>
     );
 };

@@ -1,31 +1,30 @@
-import {StateSchema} from "./StateSchema";
 import {configureStore, ReducersMapObject} from "@reduxjs/toolkit";
+import {StateSchema} from "./StateSchema";
 import {createTweetReducer} from "features/CreateTweet";
 import {feedReducer} from "features/Feed";
 import {tweetReducer} from "entities/Tweet";
 import {userReducer} from "entities/User";
-import {loginUserReducer} from "features/LoginUser";
 import {createTweetModalReducer} from "features/CreateTweetModal";
 import {registrationUserReducer} from "features/RegistrationUser";
 import {allUserTweetsReducer} from "features/AllUserTweets";
+import {loginUserReducer} from "../../../../features/LoginUser";
 
 export function createReduxStore(initialState?: StateSchema) {
 
-    const rootReducer: ReducersMapObject<StateSchema> = {
-        tweetForm: createTweetReducer,
-        tweetFormModal: createTweetModalReducer,
-        feed: feedReducer,
-        tweet: tweetReducer,
+    const rootReducers: ReducersMapObject<StateSchema> = {
         user: userReducer,
+        tweet: tweetReducer,
+        allUserTweets: allUserTweetsReducer,
         registrationUser: registrationUserReducer,
         loginUser: loginUserReducer,
-        allUserTweets: allUserTweetsReducer
-    }
+        feed: feedReducer,
+        tweetFormModal: createTweetModalReducer,
+        tweetForm: createTweetReducer,
+    };
 
     return configureStore<StateSchema>({
-        reducer: rootReducer,
+        reducer: rootReducers,
         devTools: true,
         preloadedState: initialState,
     })
-
 }

@@ -8,12 +8,12 @@ import {RegistrationUserSchema} from "features/RegistrationUser";
 import {AllUserTweetsSchema} from "features/AllUserTweets";
 
 export interface StateSchema {
-    tweetForm: CreateTweetSchema,
-    tweetFormModal: CreateTweetModalSchema
-    feed: FeedSchema,
-    tweet: TweetSchema,
-    user: UserSchema,
-    registrationUser: RegistrationUserSchema,
+    user: UserSchema;
+    tweet: TweetSchema;
+    feed: FeedSchema;
+    tweetForm: CreateTweetSchema;
+    tweetFormModal: CreateTweetModalSchema;
+    registrationUser: RegistrationUserSchema;
+    allUserTweets: AllUserTweetsSchema;
     loginUser: LoginUserSchema,
-    allUserTweets: AllUserTweetsSchema
 }

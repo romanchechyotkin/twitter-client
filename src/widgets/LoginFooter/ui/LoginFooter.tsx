@@ -3,7 +3,7 @@ import cls from './LoginFooter.module.scss'
 import {Button} from "antd";
 import {useDispatch} from "react-redux";
 import {loginUserActions} from "features/LoginUser";
-import {registrationUserActions} from "../../../features/RegistrationUser";
+import {registrationUserActions} from "features/RegistrationUser";
 
 export const LoginFooter = () => {
     const dispatch = useDispatch()

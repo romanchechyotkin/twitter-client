@@ -46,6 +46,9 @@ export const userSlice = createSlice({
         setUserForLook: (state, action) => {
             state.user = action.payload
         },
+        setFullName: (state, action) => {
+            state.currentUserData.full_name = action.payload
+        }
     }
 })
 
