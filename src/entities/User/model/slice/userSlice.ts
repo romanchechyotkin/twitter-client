@@ -22,7 +22,8 @@ const initialState: UserSchema = {
         follows: [],
         followers: [],
         isConfirmed: false,
-    }
+    },
+    allUsers: []
 }
 
 export const userSlice = createSlice({
@@ -37,6 +38,16 @@ export const userSlice = createSlice({
         logoutCurrentUser: (state) => {
             localStorage.removeItem("accessToken");
             localStorage.removeItem("user");
+            state.currentUserData = {
+                _id: '',
+                email: '',
+                avatar: '',
+                full_name: '',
+                user_name: '',
+                follows: [],
+                followers: [],
+                isConfirmed: false,
+            }
             state.isAuth = false
         },
         initCurrentUser: (state) => {
@@ -48,6 +59,9 @@ export const userSlice = createSlice({
         },
         setFullName: (state, action) => {
             state.currentUserData.full_name = action.payload
+        },
+        allUsers: (state, action) => {
+            state.allUsers = action.payload
         }
     }
 })

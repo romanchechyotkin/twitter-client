@@ -9,6 +9,7 @@ export const AppRoute = () => {
     const isAuth = useSelector(getUserIsAuth)
 
     return (
+        <div style={{width: '600px'}}>
         <Routes>
             {Object.values(isAuth ? routeAuthConfig : routeNotAuthConfig).map(({element, path}) => (
                 <Route
@@ -22,5 +23,6 @@ export const AppRoute = () => {
                 />
             ))}
         </Routes>
+        </div>
     );
 };

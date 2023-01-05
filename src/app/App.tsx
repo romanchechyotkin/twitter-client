@@ -3,20 +3,20 @@ import {LeftSidebar} from "widgets/LeftSidebar";
 import {RightSidebar} from "widgets/RightSidebar";
 import {AppRoute} from "./providers/RouteProvider";
 import {useDispatch, useSelector} from "react-redux";
-import {getUserIsAuth, userActions} from "../entities/User";
-import {LoginFooter} from "../widgets/LoginFooter";
+import {getUserIsAuth, userActions} from "entities/User";
+import {LoginFooter} from "widgets/LoginFooter";
 import {getLoginUserIsVisible, LoginUser} from "features/LoginUser";
 import {CreateTweetModal, getCreateTweetModalIsVisible} from "features/CreateTweetModal";
-import {
-    getRegistrationUserIsVisible
-} from "features/RegistrationUser";
+import {getRegistrationUserIsVisible} from "features/RegistrationUser";
 import {RegistrationUser} from "features/RegistrationUser";
+import {useLocation} from "react-router-dom";
 
 export const App = () => {
     const isAuth = useSelector(getUserIsAuth)
     const loginUserIsVisible = useSelector(getLoginUserIsVisible)
     const registrationUserIsVisible = useSelector(getRegistrationUserIsVisible)
     const createTweetModalIsVisible = useSelector(getCreateTweetModalIsVisible)
+    const location = useLocation()
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -35,10 +35,10 @@ export const App = () => {
         <>
             <div className={'app'}>
                 <LeftSidebar />
-                <div className={'timeline'} style={{width: '600px'}}>
-                    <AppRoute />
+                <div className={'timeline'}>
+                    <AppRoute/>
                 </div>
-                <RightSidebar />
+                {location.pathname !== '/messages' && <RightSidebar/>}
             </div>
             {createTweetModalIsVisible && <CreateTweetModal />}
             {loginUserIsVisible && <LoginUser />}

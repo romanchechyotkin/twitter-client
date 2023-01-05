@@ -10,6 +10,8 @@ import {followUser} from "./model/services/followUser/followUser";
 import {unfollowUser} from "./model/services/unfollowUser/unfollowUser";
 import {uploadAvatar} from "./model/services/uploadAvatar/uploadAvatar";
 import { updateNames } from "./model/services/updateNames/updateNames";
+import { getAllUsers } from "./model/services/getAllUsers/getAllUsers";
+import { getUserAllUsers } from "./model/selectors/getUserAllUsers/getUserAllUsers";
 
 export {
     UserSchema,
@@ -26,5 +28,7 @@ export {
     followUser,
     unfollowUser,
     uploadAvatar,
-    updateNames
+    updateNames,
+    getAllUsers,
+    getUserAllUsers
 }

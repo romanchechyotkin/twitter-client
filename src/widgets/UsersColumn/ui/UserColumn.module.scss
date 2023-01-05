@@ -1,0 +1,25 @@
+.usersColumn {
+  width: 300px;
+  min-height: 100vh;
+  margin-left: 300px;
+  border: 2px rgba(86, 87, 96, 0.26) solid;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.user {
+  display: flex;
+  border-bottom: 1px solid white;
+  padding: 5px;
+  align-items: center;
+  gap: 5px;
+}
+
+.avatar {
+  height: 20px;
+  width: 20px;
+  border-radius: 25%;
+}

@@ -2,6 +2,7 @@ export interface UserSchema {
     isAuth: boolean;
     currentUserData: User,
     user: User,
+    allUsers: User[]
 }
 
 export interface User {

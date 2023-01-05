@@ -1,0 +1,24 @@
+.chat {
+  width: 600px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatInfo {
+  height: 50px;
+  border-bottom: 1px solid white;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  height: 45px;
+  width: 45px;
+  border-radius: 25%;
+  margin-right: 15px;
+}
+
+.messageForm {
+  margin-top: auto;
+}

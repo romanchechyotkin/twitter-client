@@ -79,7 +79,7 @@ export const LeftSidebar = () => {
                 notifications
             </AppLink>
             <AppLink
-                to={AuthAppRoutes.MESSAGES}
+                to={'/messages'}
                 className={cls.sidebarItem}
             >
                 <MailOutlined className={cls.icon}/>
